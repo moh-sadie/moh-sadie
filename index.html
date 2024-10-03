@@ -193,7 +193,7 @@
                     <div class="col-md-6 text-center text-md-right">
                         <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 mr-md-3">
                             <h4 class="mb-2">Today</h4>
-                            <p class="text-uppercase mb-2">28 September 2024</p>
+                            <p class="text-uppercase mb-2" id="current-date">11 September 2024</p>
                             <p class="m-0">Until Today, we are still best friends, we will always be.</p>
                         </div>
                     </div>
@@ -311,6 +311,19 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <script>
+        function updateDate() {
+          var today = new Date();
+          var day = String(today.getDate()).padStart(2, '0');
+          var month = String(today.getMonth() + 1).padStart(2, '0');
+          var year = today.getFullYear();
+          var formattedDate = day + ' ' + new Intl.DateTimeFormat('en', { month: 'long' }).format(today) + ' ' + year;
+          document.getElementById('current-date').textContent = formattedDate;
+        }
+        updateDate();
+      </script>
 
 
     <!-- JavaScript Libraries -->
